@@ -35,10 +35,6 @@ angular.module('movieManiaApp')
       image : 'https://images-na.ssl-images-amazon.com/images/M/MV5BODAwMDc0NzA3Ml5BMl5BanBnXkFtZTgwMjU4NzgyNzE@._V1_SY1000_CR0,0,707,1000_AL_.jpg'
     };
 
-  	//$scope.newMovieTitle = '';
-  	//$scope.newMovieDescription = '';
-  	//$scope.newMovieImage='https://images-na.ssl-images-amazon.com/images/M/MV5BODAwMDc0NzA3Ml5BMl5BanBnXkFtZTgwMjU4NzgyNzE@._V1_SY1000_CR0,0,707,1000_AL_.jpg';
- 
     $scope.validateTitle = function() {
       if ($scope.movie.title.length > 0 ) {
         console.log($scope.movie.title);
@@ -47,28 +43,20 @@ angular.module('movieManiaApp')
       }
     };
 
-
     $scope.addMovie = function() {
-     /* var movie = { 
-        title : $scope.newMovieTitle,
-        image : $scope.newMovieImage,
-        category : $scope.newMovieCategory,
-        description : $scope.newMovieDescription,
-      };*/
-
       console.log($scope.movie.title);
       $scope.movies.push(angular.copy($scope.movie));
     };
 
     $scope.checkCategorySelected = function() {
-      if($scope.newMovieCategory === '') {
+      if($scope.movie.category === '') {
           window.alert('Category is required');
       }
    };
 
    $scope.checkDescription = function() {
-    if ( $scope.checkDescription === '') {
-      console.debug('Description is required');
+    if ( $scope.movie.description === '') {
+      console.log('Description is required');
     }
    };
 
