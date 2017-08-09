@@ -28,6 +28,8 @@ angular.module('movieManiaApp')
   		category:'Awesome'
   	}];
 
+    $scope.closed = false;
+
   	$scope.movies = movieList;
 
     $scope.movie = {
@@ -35,10 +37,22 @@ angular.module('movieManiaApp')
       image : 'https://images-na.ssl-images-amazon.com/images/M/MV5BODAwMDc0NzA3Ml5BMl5BanBnXkFtZTgwMjU4NzgyNzE@._V1_SY1000_CR0,0,707,1000_AL_.jpg'
     };
 
+    $scope.isValid = function() {
+      if($scope.movie.title === '') {
+        return false;
+      }
+      if($scope.movie.description === '') {
+        return false;
+      }
+      if($scope.movie.category === '') {
+        return false;
+      }
+      return true;
+    };
+
     $scope.validateTitle = function() {
-      if ($scope.movie.title.length > 0 ) {
-        console.log($scope.movie.title);
-      } else {
+      console.log($scope.movie.title);
+      if ($scope.movie.title.length === 0 ) {
         window.alert('title is required');
       }
     };
@@ -56,7 +70,7 @@ angular.module('movieManiaApp')
 
    $scope.checkDescription = function() {
     if ( $scope.movie.description === '') {
-      console.log('Description is required');
+      window.alert('Description is required');
     }
    };
 
